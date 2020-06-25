@@ -50,25 +50,25 @@
 	<RETURN .KEY>>
 
 <ROUTINE SELECT-RULE (KEY)
-	<COND (<EQUAL? .KEY !\0> <RETURN !30>)>
-	<COND (<EQUAL? .KEY !\1> <RETURN !54>)>
-	<COND (<EQUAL? .KEY !\2> <RETURN !60>)>
-	<COND (<EQUAL? .KEY !\3> <RETURN !62>)>
-	<COND (<EQUAL? .KEY !\4> <RETURN !90>)>
-	<COND (<EQUAL? .KEY !\5> <RETURN !94>)>
-	<COND (<EQUAL? .KEY !\6> <RETURN !102>)>
-	<COND (<EQUAL? .KEY !\7> <RETURN !110>)>
-	<COND (<EQUAL? .KEY !\8> <RETURN !122>)>
-	<COND (<EQUAL? .KEY !\9> <RETURN !126>)>
-	<COND (<EQUAL? .KEY !\a !\A> <RETURN !150>)>
-	<COND (<EQUAL? .KEY !\b !\B> <RETURN !158>)>
-	<COND (<EQUAL? .KEY !\c !\C> <RETURN !182>)>
-	<COND (<EQUAL? .KEY !\d !\D> <RETURN !188>)>
-	<COND (<EQUAL? .KEY !\e !\E> <RETURN !190>)>
-	<COND (<EQUAL? .KEY !\f !\F> <RETURN !220>)>
-	<COND (<EQUAL? .KEY !\g !\G> <RETURN !222>)>
-	<COND (<EQUAL? .KEY !\h !\H> <RETURN !250>)>
-	<RETURN !30>>
+	<COND (<EQUAL? .KEY !\0> <RETURN 30>)>
+	<COND (<EQUAL? .KEY !\1> <RETURN 54>)>
+	<COND (<EQUAL? .KEY !\2> <RETURN 60>)>
+	<COND (<EQUAL? .KEY !\3> <RETURN 62>)>
+	<COND (<EQUAL? .KEY !\4> <RETURN 90>)>
+	<COND (<EQUAL? .KEY !\5> <RETURN 94>)>
+	<COND (<EQUAL? .KEY !\6> <RETURN 102>)>
+	<COND (<EQUAL? .KEY !\7> <RETURN 110>)>
+	<COND (<EQUAL? .KEY !\8> <RETURN 122>)>
+	<COND (<EQUAL? .KEY !\9> <RETURN 126>)>
+	<COND (<EQUAL? .KEY !\a !\A> <RETURN 150>)>
+	<COND (<EQUAL? .KEY !\b !\B> <RETURN 158>)>
+	<COND (<EQUAL? .KEY !\c !\C> <RETURN 182>)>
+	<COND (<EQUAL? .KEY !\d !\D> <RETURN 188>)>
+	<COND (<EQUAL? .KEY !\e !\E> <RETURN 190>)>
+	<COND (<EQUAL? .KEY !\f !\F> <RETURN 220>)>
+	<COND (<EQUAL? .KEY !\g !\G> <RETURN 222>)>
+	<COND (<EQUAL? .KEY !\h !\H> <RETURN 250>)>
+	<RETURN 30>>
 
 <ROUTINE PRINT-WORLD ()
 	<TELL " ">
@@ -90,7 +90,7 @@
 
 <ROUTINE APPLY-RULES (RULE "AUX" LN RN VAL)
 	<DO (I 1 LENGTH)
-		<SET VAL !0>
+		<SET VAL 0>
 		<SET LN <- .I 1>>
 		<SET RN <+ .I 1>>
 		
@@ -103,7 +103,7 @@
 		
 		<SET VAL <SHL 1 .VAL>>
 		
-		<COND (<G? <BAND .VAL .RULE> !0> <PUTB NEXT .I !1>)(<PUTB NEXT .I !0>)>
+		<COND (<G? <BAND .VAL .RULE> 0> <PUTB NEXT .I 1>)(<PUTB NEXT .I 0>)>
 	>>
 
 <ROUTINE COPY-NEXT ()
@@ -113,5 +113,5 @@
 
 <ROUTINE CLEAR-WORLD ()
 	<DO (I 1 LENGTH)
-		<PUTB WORLD .I !0>
+		<PUTB WORLD .I 0>
 	>>
