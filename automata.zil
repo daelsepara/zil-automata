@@ -72,12 +72,13 @@
 	<RETURN !30>>
 
 <ROUTINE PRINT-WORLD ()
-    <DO (I 1 LENGTH)
-        <TELL " ">
+    <TELL " ">
+	<HLIGHT 2>
+	<DO (I 1 LENGTH)
         <COND (<GETB WORLD .I> <TELL C CELL-CHAR>)(<TELL " ">)>
     >
-    <CRLF>
->
+	<HLIGHT 0>
+    <CRLF>>
 
 <ROUTINE SHL (VAL COUNT "AUX" RET)
     <SET RET .VAL>
@@ -116,5 +117,4 @@
 <ROUTINE CLEAR-WORLD ()
 	<DO (I 1 LENGTH)
 		<PUTB WORLD .I !0>
-	>
->
+	>>
