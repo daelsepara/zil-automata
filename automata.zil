@@ -6,7 +6,7 @@
 <CONSTANT CELL-CHAR !\#>
 
 <ROUTINE GO ()
-    <AUTOMATA-LOOP>>
+	<AUTOMATA-LOOP>>
 
 <ROUTINE AUTOMATA-LOOP ("AUX" KEY RULE ITERATIONS)
 	<SET KEY !\1>
@@ -23,7 +23,7 @@
 		<CRLF>
 		<SET KEY <PRINT-MENU>>
 		<COND (<EQUAL? .KEY !\x !\X> <RETURN>)>
-    >>
+	>>
 
 <ROUTINE PRINT-MENU("AUX" KEY)
 	<TELL "Select rule to apply: " CR>
@@ -32,7 +32,7 @@
 	<TELL "2 - Rule 60, ">
 	<TELL "3 - Rule 62, ">
 	<TELL "4 - Rule 90, ">
-	<TELL "5 - Rule 94, " >
+	<TELL "5 - Rule 94, ">
 	<TELL "6 - Rule 102, ">
 	<TELL "7 - Rule 110, ">
 	<TELL "8 - Rule 122, " CR>
@@ -47,8 +47,7 @@
 	<TELL "h - Rule 250, " CR>
 	<TELL "x - Exit" CR>
 	<SET KEY <INPUT 1>>
-	<RETURN .KEY>
->
+	<RETURN .KEY>>
 
 <ROUTINE SELECT-RULE (KEY)
 	<COND (<EQUAL? .KEY !\0> <RETURN !30>)>
@@ -72,22 +71,22 @@
 	<RETURN !30>>
 
 <ROUTINE PRINT-WORLD ()
-    <TELL " ">
+	<TELL " ">
 	<HLIGHT 2>
 	<DO (I 1 LENGTH)
-        <COND (<GETB WORLD .I> <TELL C CELL-CHAR>)(<TELL " ">)>
-    >
+		<COND (<GETB WORLD .I> <TELL C CELL-CHAR>)(<TELL " ">)>
+	>
 	<HLIGHT 0>
-    <CRLF>>
+	<CRLF>>
 
 <ROUTINE SHL (VAL COUNT "AUX" RET)
-    <SET RET .VAL>
-    <COND (<G? .COUNT 0>
-        <DO (I 1 .COUNT)
-            <SET RET <* .RET 2>>
-        >
-    )>
-    <RETURN .RET>>
+	<SET RET .VAL>
+	<COND (<G? .COUNT 0>
+		<DO (I 1 .COUNT)
+			<SET RET <* .RET 2>>
+		>
+	)>
+	<RETURN .RET>>
 
 <ROUTINE APPLY-RULES (RULE "AUX" LN RN VAL)
 
