@@ -89,29 +89,27 @@
 	<RETURN .RET>>
 
 <ROUTINE APPLY-RULES (RULE "AUX" LN RN VAL)
-
-    <DO (I 1 LENGTH)
-
-        <SET VAL !0>
-        <SET LN <- .I 1>>
-        <SET RN <+ .I 1>>
-
-        <COND (<L? .LN 1> <SET .LN LENGTH>)>
-        <COND (<G? .RN LENGTH> <SET .RN 1>)>
-
-        <COND (<G? <GETB WORLD .RN> 0> <SET VAL <+ .VAL 1>>)>
-        <COND (<G? <GETB WORLD .I> 0> <SET VAL <+ .VAL 2>>)>
-        <COND (<G? <GETB WORLD .LN> 0> <SET VAL <+ .VAL 4>>)>
-
-        <SET VAL <SHL 1 .VAL>>
-
-        <COND (<G? <BAND .VAL .RULE> !0> <PUTB NEXT .I !1>)(<PUTB NEXT .I !0>)>
-    >>
+	<DO (I 1 LENGTH)
+		<SET VAL !0>
+		<SET LN <- .I 1>>
+		<SET RN <+ .I 1>>
+		
+		<COND (<L? .LN 1> <SET .LN LENGTH>)>
+		<COND (<G? .RN LENGTH> <SET .RN 1>)>
+		
+		<COND (<G? <GETB WORLD .RN> 0> <SET VAL <+ .VAL 1>>)>
+		<COND (<G? <GETB WORLD .I> 0> <SET VAL <+ .VAL 2>>)>
+		<COND (<G? <GETB WORLD .LN> 0> <SET VAL <+ .VAL 4>>)>
+		
+		<SET VAL <SHL 1 .VAL>>
+		
+		<COND (<G? <BAND .VAL .RULE> !0> <PUTB NEXT .I !1>)(<PUTB NEXT .I !0>)>
+	>>
 
 <ROUTINE COPY-NEXT ()
-    <DO (I 1 LENGTH)
-        <PUTB WORLD .I <GETB NEXT .I>>
-    >>
+	<DO (I 1 LENGTH)
+		<PUTB WORLD .I <GETB NEXT .I>>
+	>>
 
 <ROUTINE CLEAR-WORLD ()
 	<DO (I 1 LENGTH)
